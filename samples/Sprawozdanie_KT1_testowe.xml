@@ -1,0 +1,63 @@
+<Sprawozdanie xmlns="http://ps.stat.gov.pl/ps/schema/sprawozdanie" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ps.stat.gov.pl/ps/schema/sprawozdanie sprawozdanie.xsd" formularzSymbol="KT-1" formularzWersja="3.3" numerSprawozdania="0">
+	<Elementy>
+		<Pole id="uwagi"/>
+		<Pole id="ra11" wartosc="1"/>
+		<Pole id="p1" wartosc="TEST"/>
+		<Pole id="sym" wartosc="0974133"/>
+		<Pole id="p2_adres" wartosc="UL. STATYSTYCZNA"/>
+		<Pole id="p2_poczta" wartosc="35-959 Test"/>
+		<Pole id="p3" wartosc="01"/>
+		<Pole id="p4" wartosc="1"/>
+		<Pole id="p5" wartosc="2"/>
+		<Pole id="p6" wartosc="1"/>
+		<Pole id="d2r1" wartosc="2"/>
+		<Pole id="d2r2" wartosc="1"/>
+		<Pole id="d2r3" wartosc="0"/>
+		<Pole id="d2r4" wartosc="0"/>
+		<Pole id="d3r1" wartosc="100"/>
+		<Pole id="d3r2" wartosc="100"/>
+		<Pole id="d3r3" wartosc="10"/>
+		<Pole id="d3r4" wartosc="200"/>
+		<Pole id="d3r5" wartosc="200"/>
+		<Pole id="d3r6" wartosc="0"/>
+		<Pole id="d7aw1" wartosc="6200"/>
+		<Pole id="d7aw2" wartosc="100"/>
+		<Pole id="d7aw3" wartosc="150"/>
+		<Pole id="d7w4r1" wartosc="100"/>
+		<Pole id="d7w4r2" wartosc="10"/>
+		<Pole id="d7w5r1" wartosc="150"/>
+		<Pole id="d7w5r2" wartosc="12"/>
+		<Pole id="d7w5ar1" wartosc="7"/>
+		<Pole id="d7w5ar2" wartosc="7"/>
+		<Pole id="d7w6r1" wartosc="75"/>
+		<Pole id="d7w6r2" wartosc="6"/>
+		<Pole id="d7w1" wartosc="31"/>
+		<Pole id="d7w2" wartosc="6200"/>
+		<Pole id="d7w3" wartosc="3100"/>
+		<Pole id="d8r1" wartosc="040"/>
+		<Pole id="d8r1" indeks="1" wartosc="276"/>
+		<Pole id="d8r2" wartosc="5"/>
+		<Pole id="d8r2" indeks="1" wartosc="5"/>
+		<Pole id="d8r3" wartosc="5"/>
+		<Pole id="d8r3" indeks="1" wartosc="7"/>
+		<Sekcja id="n_dzialalnosc" widoczna="false"/>
+		<Sekcja id="s_dz1" widoczna="false"/>
+		<Sekcja id="s_dz8_info"/>
+		<Sekcja id="s_dz1_p2" widoczna="false"/>
+		<Sekcja id="s_d7_w5a" widoczna="false"/>
+		<Sekcja id="s_dz1_p1" widoczna="false"/>
+		<Sekcja id="s_dz8_wr" widoczna="false"/>
+		<MultiSekcja iloscSekcji="2" id="s_dz8_multi"/>
+		<Sekcja id="s_uwagi" widoczna="false"/>
+		<Sekcja id="s_dz8_w00" widoczna="false"/>
+		<Sekcja id="s_d7_w6" widoczna="false"/>
+		<Sekcja id="s_d7_w5" widoczna="false"/>
+		<Sekcja id="s_pomoc" widoczna="false"/>
+		<Sekcja id="s_d7_w4" widoczna="false"/>
+		<Sekcja id="s_dz3" widoczna="false"/>
+		<Sekcja id="s_dz2" widoczna="false"/>
+		<Sekcja id="n_dane_kontaktowe" widoczna="false"/>
+		<Sekcja id="s_dz7" widoczna="false"/>
+		<Sekcja id="s_dz1_cd" widoczna="false"/>
+	</Elementy>
+</Sprawozdanie>

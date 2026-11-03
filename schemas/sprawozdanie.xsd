@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="windows-1250"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ps.stat.gov.pl/ps/schema/sprawozdanie"
+	xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns="http://ps.stat.gov.pl/ps/schema/sprawozdanie"  elementFormDefault="qualified">
+	<xs:import schemaLocation="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" namespace="http://www.w3.org/2000/09/xmldsig#"></xs:import>
+	<xs:element name="Sprawozdanie" type="Sprawozdanie">
+		<xs:annotation>
+			<xs:documentation>Element główny sprawozdania</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="MultiSekcja">
+		<xs:annotation>
+			<xs:documentation>Informacja o ilości powtórzeń multisekcji.</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="Sekcja">
+				<xs:attribute name="iloscSekcji" type="xs:int" use="required">
+					<xs:annotation>
+						<xs:documentation>Ilość powtórzeń multisekcji w sprawozdaniu.</xs:documentation>
+					</xs:annotation>
+				</xs:attribute>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Elementy">
+		<xs:annotation>
+			<xs:documentation>Elementy sprawozdania</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded">
+			<xs:element name="Pole" type="Pole"/>
+			<xs:element name="Sekcja" type="Sekcja"/>
+			<xs:element name="MultiSekcja" type="MultiSekcja"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="Sprawozdanie">
+		<xs:annotation>
+			<xs:documentation>Klasa definiująca sprawozdanie.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Elementy" type="Elementy"/>
+			<xs:element name="Zalaczniki" type="Zalaczniki" minOccurs="0"/>
+			<xs:element name="Strony" type="Strony" minOccurs="0"/>
+			<xs:element ref="ds:Signature" minOccurs="0" />
+
+		</xs:sequence>
+		<xs:attribute name="formularzSymbol" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Symbol formularza (np. F-01/I-01).</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="formularzWersja" type="xs:string" use="required"/>
+		<xs:attribute name="numerSprawozdania" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Numer sprawozdania dodatkowego. Pole niewymagane dla sprawozdania głównego.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Zalaczniki">
+		<xs:annotation>
+			<xs:documentation>Załączniki sprawozdania</xs:documentation>
+		</xs:annotation>
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="Zalacznik" type="Zalacznik"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Zalacznik">
+		<xs:annotation>
+			<xs:documentation>Klasa definiująca załącznik sprawozdania.</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Elementy" type="Elementy"/>
+		</xs:sequence>
+		<xs:attribute name="symbol" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Strony">
+		<xs:annotation>
+			<xs:documentation>Strony sprawozdania</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Strona" type="Strona" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Strona">
+		<xs:annotation>
+			<xs:documentation>Klasa definiująca element przechowujący informacje o stronie sprawozdania.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="required"/>
+		<xs:attribute name="wypelniona" type="xs:boolean" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Pole">
+		<xs:annotation>
+			<xs:documentation>Klasa reprezentująca pole sprawozdania.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Unikalny identyfikator elementu formularza. Identyfikatory muszą składać się z liter i cyfr, przy czym pierwszym znakiem musi być litera. Nie mogą zawierać białych znaków.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="wartosc" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>Wartość pola.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="indeks" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Numer wartości pola o danym id wprowadzonej w kolejnych wystąpieniach multisekcji. Indeksy liczone są od 0. Dla pól pojedynczych, nie występujących w multisekcjach, to pole zawsze przyjmuje wartość 0.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="automatyczne" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Pole określające, czy wartość została wprowadzona ręcznie czy automatycznie - na skutek obliczenia wartości formuły.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="korekta" type="xs:boolean">
+			<xs:annotation>
+				<xs:documentation>Pole określające czy wartość pola była zmieniana. Zmiany wartości są odnotowywane tylko wtedy, gdy sprawozdanie jest w stanie korekty. Jeżeli pole jest ustawione (wartość true), powinno być wyróżnione na formularzu.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="Sekcja">
+		<xs:annotation>
+			<xs:documentation>Sekcja sprawozdania grupująca inne elementy.</xs:documentation>
+		</xs:annotation>
+		<xs:attribute name="id" type="xs:string" use="required">
+			<xs:annotation>
+				<xs:documentation>Unikalny identyfikator elementu formularza. Identyfikatory muszą składać się z liter i cyfr, przy czym pierwszym znakiem musi być litera. Nie mogą zawierać białych znaków.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="widoczna" type="xs:boolean" default="true">
+			<xs:annotation>
+				<xs:documentation>Pole określające czy sekcja jest widoczna.</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="indeks" type="xs:int">
+			<xs:annotation>
+				<xs:documentation>Numer sekcji o danym id wprowadzonej w kolejnych wystąpieniach multisekcji. Indeksy liczone są od 0. Dla pól pojedynczych, nie występujących w multisekcjach, to pole zawsze przyjmuje wartość 0</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:complexType>
+</xs:schema>

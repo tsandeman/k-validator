@@ -1,0 +1,171 @@
+<Sprawozdanie xmlns="http://ps.stat.gov.pl/ps/schema/sprawozdanie" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://ps.stat.gov.pl/ps/schema/sprawozdanie sprawozdanie.xsd" formularzSymbol="KT-1" formularzWersja="3.5" numerSprawozdania="0">
+
+<Elementy>
+
+<Pole automatyczne="true" id="n_telefon" wartosc="(22) 1234567"/>
+
+<Pole automatyczne="true" id="n_email_sprawozdawca" wartosc="jan.kowalski@example.com"/>
+
+<Pole automatyczne="true" id="n_email_firma" wartosc="biuro@example.com"/>
+
+<Pole automatyczne="true" id="jsbad" wartosc="12345678500000"/>
+
+<Pole id="uwagi"/>
+
+<Pole id="ra11" wartosc="1"/>
+
+<Pole id="pf2" wartosc="0"/>
+
+<Pole automatyczne="true" id="RA_F" wartosc="01"/>
+
+<Pole id="p1" wartosc="Test & Travel"/>
+
+<Pole id="sym" wartosc="0958430"/>
+
+<Pole id="p2_adres" wartosc="Testowa 1"/>
+
+<Pole id="p2_poczta" wartosc="90-406"/>
+
+<Pole id="p3" wartosc="04"/>
+
+<Pole id="p4" wartosc="1"/>
+
+<Pole id="p5" wartosc="9"/>
+
+<Pole id="p6" wartosc="1"/>
+
+<Pole id="d7w4r1" wartosc="123"/>
+
+<Pole id="d7w4r2" wartosc="22"/>
+
+<Pole id="d7w5r1" wartosc="473"/>
+
+<Pole id="d7w5r2" wartosc="190"/>
+
+<Pole id="d7w5ar1" wartosc="163"/>
+
+<Pole id="d7w5ar2" wartosc="39"/>
+
+<Pole id="d7w6r1" wartosc="248"/>
+
+<Pole id="d7w6r2" wartosc="177"/>
+
+<Pole id="d7w1" wartosc="30"/>
+
+<Pole id="d7w2" wartosc="1350"/>
+
+<Pole id="d7w3" wartosc="600"/>
+
+<Pole id="d7aw1" wartosc="0"/>
+
+<Pole id="d7aw2" wartosc="0"/>
+
+<Pole id="d7aw3" wartosc="0"/>
+
+<Pole automatyczne="true" id="d8r2w0" wartosc="22"/>
+
+<Pole automatyczne="true" id="d8r3w0" wartosc="190"/>
+
+<Pole automatyczne="true" id="d8r2wr" wartosc="0"/>
+
+<Pole automatyczne="true" id="d8r3wr" wartosc="0"/>
+
+<Pole automatyczne="true" id="d8_lp" wartosc="1"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="1" wartosc="2"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="2" wartosc="3"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="3" wartosc="4"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="4" wartosc="5"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="5" wartosc="6"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="6" wartosc="7"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="7" wartosc="8"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="8" wartosc="9"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="9" wartosc="10"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="10" wartosc="11"/>
+
+<Pole automatyczne="true" id="d8_lp" indeks="11" wartosc="12"/>
+
+<Pole id="d8r1" wartosc="40"/>
+
+<Pole id="d8r1" indeks="1" wartosc="246"/>
+
+<Pole id="d8r1" indeks="2" wartosc="724"/>
+
+<Pole id="d8r1" indeks="3" wartosc="528"/>
+
+<Pole id="d8r1" indeks="4" wartosc="276"/>
+
+<Pole id="d8r1" indeks="5" wartosc="840"/>
+
+<Pole id="d8r1" indeks="6" wartosc="792"/>
+
+<Pole id="d8r1" indeks="7" wartosc="804"/>
+
+<Pole id="d8r1" indeks="8" wartosc="348"/>
+
+<Pole id="d8r1" indeks="9" wartosc="826"/>
+
+<Pole id="d8r1" indeks="10" wartosc="826"/>
+
+<Pole id="d8r1" indeks="11" wartosc="380"/>
+
+<Pole id="d8r2" wartosc="1"/>
+
+<Pole id="d8r2" indeks="1" wartosc="1"/>
+
+<Pole id="d8r2" indeks="2" wartosc="1"/>
+
+<Pole id="d8r2" indeks="3" wartosc="1"/>
+
+<Pole id="d8r2" indeks="4" wartosc="2"/>
+
+<Pole id="d8r2" indeks="5" wartosc="2"/>
+
+<Pole id="d8r2" indeks="6" wartosc="6"/>
+
+<Pole id="d8r2" indeks="7" wartosc="2"/>
+
+<Pole id="d8r2" indeks="8" wartosc="0"/>
+
+<Pole id="d8r2" indeks="9" wartosc="1"/>
+
+<Pole id="d8r2" indeks="10" wartosc="1"/>
+
+<Pole id="d8r2" indeks="11" wartosc="4"/>
+
+<Pole id="d8r3" wartosc="30"/>
+
+<Pole id="d8r3" indeks="1" wartosc="1"/>
+
+<Pole id="d8r3" indeks="2" wartosc="1"/>
+
+<Pole id="d8r3" indeks="3" wartosc="5"/>
+
+<Pole id="d8r3" indeks="4" wartosc="5"/>
+
+<Pole id="d8r3" indeks="5" wartosc="11"/>
+
+<Pole id="d8r3" indeks="6" wartosc="82"/>
+
+<Pole id="d8r3" indeks="7" wartosc="2"/>
+
+<Pole id="d8r3" indeks="8" wartosc="30"/>
+
+<Pole id="d8r3" indeks="9" wartosc="4"/>
+
+<Pole id="d8r3" indeks="10" wartosc="4"/>
+
+<Pole id="d8r3" indeks="11" wartosc="15"/>
+
+</Elementy>
+
+</Sprawozdanie>

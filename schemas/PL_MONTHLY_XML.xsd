@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://ps.stat.gov.pl/ps/schema/sprawozdanie/kt1" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://ps.stat.gov.pl/ps/schema/sprawozdanie/kt1">
+	<element name="Survey" type="tns:SURVEY_TYPE"></element>
+
+	<complexType name="SURVEY_TYPE">
+		<sequence>
+			<element name="Header" type="tns:HEADER_TYPE"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Data provided in header are only used when
+						reporter has no access to Polish CSO (GUS) Main
+						Survey Site (offline survey distribution).
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Contents" type="tns:CONTENTS_TYPE"
+				minOccurs="1">
+				<annotation>
+					<documentation>
+						Main contents of KT-1 survey.
+					</documentation>
+				</annotation>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="CONTENTS_TYPE">
+		<sequence>
+			<element name="Establishment" type="tns:ESTABLISHMENT_TYPE"
+				minOccurs="1" maxOccurs="1">
+			</element>
+			<element name="CateringUnits" type="tns:CATERING_UNITS_TYPE"
+				minOccurs="0" maxOccurs="1">
+			</element>
+			<element name="ForeignTourists"
+				type="tns:FOREIGN_TURISTS_TYPE" minOccurs="0"
+				maxOccurs="unbounded">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ESTABLISHMENT_TYPE">
+		<sequence>
+			<element name="Name" type="string" minOccurs="1"></element>
+			<element name="Address" type="tns:ADDRESS_TYPE"
+				minOccurs="1">
+			</element>
+			<element name="OpenPeriod" type="tns:OPEN_PERIOD_TYPE" minOccurs="1"></element>
+			<choice minOccurs="1" maxOccurs="1">
+				<element name="HotelAlike"
+					type="tns:ESTABLISHMENT_HOTEL_TYPE">
+				</element>
+				<element name="CampingFacilities"
+					type="tns:ESTABLISHMENT_CAMP_TYPE">
+				</element>
+				<element name="OtherFacilities"
+					type="tns:ESTABLISHMENT_OTHER_TYPE">
+				</element>
+			</choice>
+
+		</sequence>
+	</complexType>
+
+
+
+	<complexType name="ESTABLISHMENT_HOTEL_TYPE">
+		<sequence>
+			<element name="Type" minOccurs="1">
+				<simpleType>
+					<restriction base="int">
+						<enumeration value="1"></enumeration>
+						<enumeration value="2"></enumeration>
+						<enumeration value="3"></enumeration>
+						<enumeration value="4"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="EstablishmentCategory" minOccurs="1">
+				<simpleType>
+					<restriction base="int">						<minInclusive value="1"></minInclusive>
+						<maxInclusive value="9"></maxInclusive>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Accomodation"
+				type="tns:ACCOMODATION_HOTEL_TYPE" minOccurs="0">
+			</element>
+			<element name="Utilisation"
+				type="tns:UTILISATION_HOTEL_TYPE" minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ACCOMODATION_TYPE">
+		<sequence>
+			<element name="BedPlaces" type="tns:BED_PLACES_TYPE"
+				minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="FOREIGN_TURISTS_TYPE">
+		<sequence>
+			<element name="Country" type="string" minOccurs="1">
+				<annotation>
+					<documentation>
+						ISO 3166-1 numeric country code of customers
+						citzenship - code 999 is for stateless persons.
+					</documentation>
+				</annotation></element>
+			<element name="Accoumodated" type="int" minOccurs="1"></element>
+			<element name="Nights" type="int" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="BED_PLACES_TYPE">
+		<sequence>
+			<element name="AccessibleAllYear" type="int"
+				minOccurs="1">
+			</element>
+			<element name="Seasonal" type="int" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ACCOMODATION_HOTEL_TYPE">
+		<complexContent>
+			<extension base="tns:ACCOMODATION_TYPE">
+				<sequence>
+					<element name="Bedrooms" type="tns:BEDROOMS_TYPE"
+						minOccurs="1">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="BEDROOMS_TYPE">
+		<sequence>
+			<element name="Total" type="int" minOccurs="1"></element>
+			<element name="Plumbed" type="int" minOccurs="1"></element>
+			<element name="WheelchairAccessible" type="int"
+				minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="UTILISATION_BASE_TYPE" abstract="true">
+		<sequence>
+			<element name="ActivityDays" type="int" minOccurs="1"></element>
+			<element name="BedPlaces" type="int" minOccurs="1"></element>
+		</sequence>
+
+
+	</complexType>
+
+	<complexType name="UTILISATION_NONHOTEL_TYPE">
+		<complexContent>
+			<extension base="tns:UTILISATION_BASE_TYPE">
+				<sequence>
+					<element name="Usage" type="tns:USAGE_TYPE"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="USAGE_TYPE">
+		<sequence>
+			<element name="AccommodatedTourists"
+				type="tns:USAGE_DATA_TYPE">
+			</element>
+			<element name="NightsSpent" type="tns:USAGE_DATA_TYPE"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="USAGE_DATA_TYPE">
+		<sequence>
+			<element name="Total" type="int" minOccurs="1"></element>
+			<element name="Foreign" type="int" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ESTABLISHMENT_CAMP_TYPE">
+		<sequence>
+			<element name="Type" minOccurs="1">
+				<simpleType>
+					<restriction base="int">
+						<enumeration value="14"></enumeration>
+						<enumeration value="15"></enumeration>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Accomodation" type="tns:ACCOMODATION_TYPE"
+				minOccurs="0">
+			</element>
+			<element name="Utilisation"
+				type="tns:UTILISATION_NONHOTEL_TYPE">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ESTABLISHMENT_OTHER_TYPE">
+		<sequence>
+            <element name="Type" minOccurs="1">
+            	<simpleType>
+            		<restriction base="int">
+            			<enumeration value="5"></enumeration>
+            			<enumeration value="6"></enumeration>
+            			<enumeration value="7"></enumeration>
+            			<enumeration value="8"></enumeration>
+            			<enumeration value="9"></enumeration>
+            			<enumeration value="10"></enumeration>
+            			<enumeration value="11"></enumeration>
+            			<enumeration value="12"></enumeration>
+            			<enumeration value="13"></enumeration>
+            			<enumeration value="16"></enumeration>
+            			<enumeration value="17"></enumeration>
+            			<enumeration value="18"></enumeration>
+            			<enumeration value="19"></enumeration>
+            			<enumeration value="20"></enumeration>
+            		</restriction>
+            	</simpleType>
+            </element>
+            <element name="ProvidesHotelServices" minOccurs="0" type="int">
+                <annotation>
+                	<documentation>
+                		Required only in July report.
+                	</documentation>
+                </annotation>
+
+            </element>
+            <element name="Accomodation" type="tns:ACCOMODATION_TYPE"
+				minOccurs="0">
+			</element>
+			<element name="Utilisation"
+				type="tns:UTILISATION_NONHOTEL_TYPE" minOccurs="1">
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="CATERING_UNITS_TYPE">
+		<sequence>
+			<element name="Restaurants" type="int" minOccurs="1"></element>
+			<element name="Bars" type="int" minOccurs="1"></element>
+			<element name="Centeens" type="int" minOccurs="1"></element>
+			<element name="DiningPoints" type="int" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="UTILISATION_HOTEL_TYPE">
+		<complexContent>
+			<extension base="tns:UTILISATION_BASE_TYPE">
+				<sequence>
+					<element name="Bedrooms" type="int" minOccurs="1"></element>
+					<element name="Usage" type="tns:USAGE_HOTEL_TYPE"></element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="USAGE_HOTEL_TYPE">
+		<complexContent>
+			<extension base="tns:USAGE_TYPE">
+				<sequence>
+					<element name="RentedBedrooms"
+						type="tns:USAGE_DATA_TYPE">
+					</element>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+
+	<complexType name="HEADER_TYPE">
+		<sequence>
+			<element name="Reporter" type="tns:REPORTER_TYPE"
+				minOccurs="0">
+			</element>
+			<element name="IdentyficationNumber" type="int"
+				minOccurs="0">
+				<annotation>
+					<documentation>
+						Polish REGON number used for identyfication.
+					</documentation>
+				</annotation>
+			</element>
+			<element name="Month" type="int" minOccurs="0"></element>
+			<element name="Year" type="int" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="ADDRESS_TYPE">
+		<sequence>
+			<element name="Locality" type="tns:LOCALITY_TYPE"></element>
+			<element name="Street" type="string" minOccurs="1"></element>
+			<element name="Post" type="string" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="LOCALITY_TYPE">
+		<sequence>
+			<element name="Symbol" type="string" minOccurs="1"></element>
+			<element name="Voivodship" type="string" minOccurs="0"></element>
+			<element name="Poviat" type="string" minOccurs="0"></element>
+			<element name="Commune" type="string" minOccurs="0"></element>
+			<element name="Name" type="string" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="OPEN_PERIOD_TYPE">
+		<sequence>
+			<element name="Period" minOccurs="1">
+				<simpleType>
+					<restriction base="int">
+						<minInclusive value="1"></minInclusive>
+						<maxInclusive value="2"></maxInclusive>
+					</restriction>
+				</simpleType>
+			</element>
+			<element name="Month" minOccurs="0" maxOccurs="11">
+				<simpleType>
+					<restriction base="int">						<minInclusive value="1"></minInclusive>
+						<maxInclusive value="12"></maxInclusive>
+					</restriction>
+				</simpleType>
+			</element>
+		</sequence>
+	</complexType>
+
+	<complexType name="REPORTER_TYPE">
+		<sequence>
+			<element name="FirstName" type="string" minOccurs="0"></element>
+			<element name="LastName" type="string" minOccurs="0"></element>
+            <element name="PhoneNo" type="string" minOccurs="0"></element>
+            <element name="ReporterEMail" type="string" minOccurs="0"></element>
+            <element name="FirmEMail" type="string" minOccurs="0"></element>
+		</sequence>
+	</complexType>
+</schema>

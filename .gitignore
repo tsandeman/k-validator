@@ -9,5 +9,9 @@ WyslanieFormularza.wsdl
 kt1-report-*.html
 *.bak
 
+# Archives
+*.zip
+*.7z
+
 __pycache__/
 *.pyc
